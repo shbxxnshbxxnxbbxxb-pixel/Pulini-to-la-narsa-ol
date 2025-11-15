@@ -73,30 +73,31 @@ products = [
 
 @app.route('/')
 def home():
-    """Bosh sahifa - barcha mahsulotlarni ko'rsatadi"""
     return render_template('index.html', products=products)
 
 
 @app.route('/product/<slug>')
 def product_detail(slug):
-    """Mahsulot tafsilotlari sahifasi"""
-    # Slug bo'yicha mahsulotni topish
     product = next((p for p in products if p['slug'] == slug), None)
-    
-    # Agar mahsulot topilmasa, 404 sahifasini ko'rsatish
     if product is None:
         abort(404)
-    
     return render_template('product.html', product=product)
 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    """404 xatolik sahifasi"""
     return render_template('404.html'), 404
+```
 
+---
 
-# Vercel uchun bu juda muhim
-# Local ishga tushirish uchun: python main.py
-if __name__ == '__main__':
-    app.run(debug=True)
+### **4. Oxirgi papka tuzilmasi:**
+```
+✅ Pulini-to-la-narsa-ol/
+   ├── main.py
+   ├── requirements.txt
+   ├── vercel.json
+   └── templates/
+       ├── index.html
+       ├── product.html
+       └── 404.html
