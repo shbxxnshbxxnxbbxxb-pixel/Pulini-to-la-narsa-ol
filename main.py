@@ -1,6 +1,7 @@
 from flask import Flask, render_template, abort
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='../templates')
 
 # Mahsulotlar ro'yxati
 products = [
@@ -87,17 +88,3 @@ def product_detail(slug):
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-```
-
----
-
-### **4. Oxirgi papka tuzilmasi:**
-```
-✅ Pulini-to-la-narsa-ol/
-   ├── main.py
-   ├── requirements.txt
-   ├── vercel.json
-   └── templates/
-       ├── index.html
-       ├── product.html
-       └── 404.html
