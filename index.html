@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narsamarket - O'zbekistondagi Eng Yaxshi Onlayn Do'kon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .hero {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .search-box button:hover {
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 2rem auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 3rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: -30px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: #ffc107;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .stats { flex-direction: column; gap: 1rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span style="font-size: 2.5rem;">🛍️</span>
+                <div>
+                    <h1>Narsamarket</h1>
+                    <p class="tagline">O'zbekistondagi №1 onlayn do'kon</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h2>🎁 Sifatli Mahsulotlar - Qulay Narxlar</h2>
+        <p class="hero-subtitle">Toshkent bo'ylab bepul yetkazib berish</p>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Mahsulotlarni qidiring..." id="searchInput">
+                <button onclick="searchProducts()">🔍 Qidirish</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item">
+            <div class="stat-number">5,000+</div>
+            <div class="stat-label">Xursand mijozlar</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">1,200+</div>
+            <div class="stat-label">Mahsulotlar</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">4.8⭐</div>
+            <div class="stat-label">O'rtacha baho</div>
+        </div>
+    </div>
+
+    <main>
+        <h2 class="section-title">🔥 Ommabop Mahsulotlar</h2>
+        <div class="product-container">
+            {% for product in products %}
+            <a href="{{ url_for('product_detail', slug=product.slug) }}" class="product-card-link">
+                <div class="product-card">
+                    <img src="{{ product.image }}" alt="{{ product.name }}">
+                    <div class="product-info">
+                        <span class="product-badge">✨ TAVSIYA</span>
+                        <h3 class="product-name">{{ product.name }}</h3>
+                        <p class="product-description">{{ product.description }}</p>
+                        <div class="product-rating">
+                            ⭐⭐⭐⭐⭐ <span style="color: #666;">({{ 120 + loop.index * 47 }} ta sharh)</span>
+                        </div>
+                        <p class="product-price">{{ product.price }} so'm</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🛍️ Narsamarket</h3>
+                <p>O'zbekistondagi eng ishonchli va tezkor onlayn do'kon. Biz mijozlarimiz uchun eng yaxshi xizmatni taqdim etamiz.</p>
+            </div>
+            <div class="footer-section">
+                <h3>📞 Aloqa</h3>
+                <ul>
+                    <li>📧 info@narsamarket.uz</li>
+                    <li>📱 +998 90 000 00 00</li>
+                    <li>📍 Toshkent, Chilonzor tumani</li>
+                    <li>🕐 Har kuni 24/7 </li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>ℹ️ Ma'lumot</h3>
+                <ul>
+                    <li><a href="#">Biz haqimizda</a></li>
+                    <li><a href="#">Yetkazib berish</a></li>
+                    <li><a href="#">To'lov usullari</a></li>
+                    <li><a href="#">Qaytarish shartlari</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Narsamarket. Barcha huquqlar himoyalangan. 💜</p>
+        </div>
+    </footer>
+
+    <script>
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const name = card.querySelector('.product-name').textContent.toLowerCase();
+                const desc = card.querySelector('.product-description').textContent.toLowerCase();
+                card.parentElement.style.display = (name.includes(input) || desc.includes(input) || !input) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

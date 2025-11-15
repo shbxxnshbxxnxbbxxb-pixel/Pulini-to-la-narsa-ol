@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Sahifa topilmadi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .error-container {
+            text-align: center;
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: bounceIn 0.8s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .error-icon {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+            animation: shake 1s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        .error-container h1 {
+            font-size: 6rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .error-container h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .error-container p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .home-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .suggestions {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .suggestions h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .suggestion-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .suggestion-links a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .suggestion-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .error-container {
+                padding: 3rem 2rem;
+            }
+            .error-container h1 {
+                font-size: 4rem;
+            }
+            .error-icon {
+                font-size: 5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon">😢</div>
+        <h1>404</h1>
+        <h2>Sahifa topilmadi</h2>
+        <p>Kechirasiz, siz qidirayotgan sahifa mavjud emas yoki <br>ko'chirilgan bo'lishi mumkin.</p>
+        <a href="/" class="home-btn">🏠 Bosh sahifaga qaytish</a>
+
+        <div class="suggestions">
+            <h3>Quyidagilarni sinab ko'ring:</h3>
+            <div class="suggestion-links">
+                <a href="/">Bosh sahifa</a>
+                <a href="/">Mahsulotlar</a>
+                <a href="/">Yordam markazi</a>
+                <a href="/">Biz bilan bog'lanish</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
